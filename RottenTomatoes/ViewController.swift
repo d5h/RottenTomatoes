@@ -12,14 +12,24 @@ class ViewController: UITableViewController {
     
     var movieData: NSArray = []
     var networkErrorView: UILabel?
+    //var refreshControl: UIRefreshControl!
 
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+
+        refreshControl = UIRefreshControl()
+        refreshControl?.addTarget(self, action: "getData", forControlEvents: UIControlEvents.ValueChanged)
         
+        getData()
+    }
+    
+    func getData() {
         let url = "http://api.rottentomatoes.com/api/public/v1.0/lists/movies/box_office.json?limit=16&country=us&apikey=7b3zwfv9dhhvhwu52h8kb3yg"
         let request = NSMutableURLRequest(URL: NSURL(string: url)!)
         NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) {
             response, data, error in
+            // Prints a warning when not refreshing (first load), so shouldn't do this
+            self.refreshControl?.endRefreshing()
             if error != nil || data == nil {
                 self.showNetworkError()
                 return

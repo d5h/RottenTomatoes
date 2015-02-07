@@ -90,11 +90,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O4m-yh-9k2">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O4m-yh-9k2">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="O4m-yh-9k2" secondAttribute="trailing" id="C1o-U3-0Pk"/>
+                            <constraint firstItem="O4m-yh-9k2" firstAttribute="top" secondItem="WPL-sw-w0g" secondAttribute="topMargin" id="MIb-tR-OLY"/>
+                            <constraint firstItem="tII-pg-KKo" firstAttribute="top" secondItem="O4m-yh-9k2" secondAttribute="bottom" id="Rna-hi-1FS"/>
+                            <constraint firstAttribute="centerX" secondItem="O4m-yh-9k2" secondAttribute="centerX" id="SS1-mc-TNW"/>
+                            <constraint firstItem="O4m-yh-9k2" firstAttribute="leading" secondItem="WPL-sw-w0g" secondAttribute="leadingMargin" id="Uog-xh-YDC"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="posterView" destination="O4m-yh-9k2" id="34R-pU-8gt"/>

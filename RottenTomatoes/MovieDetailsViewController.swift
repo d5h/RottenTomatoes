@@ -18,7 +18,17 @@ class MovieDetailsViewController: UIViewController {
         
         let tmbUrl = details.valueForKeyPath("posters.original") as String
         let url = tmbUrl.stringByReplacingOccurrencesOfString("_tmb.jpg", withString: "_ori.jpg")
-        posterView.setImageWithURL(NSURL(string: url))
+        SVProgressHUD.show()
+        //posterView.setImageWithURL(NSURL(string: url))
+        let request = NSURLRequest(URL: NSURL(string: url)!)
+        posterView.setImageWithURLRequest(request, placeholderImage: nil,
+            success: { request, response, image in
+                self.posterView.image = image
+                SVProgressHUD.dismiss()
+            }, failure: { request, response, image in
+                SVProgressHUD.dismiss()
+            }
+        )
     }
 
     override func didReceiveMemoryWarning() {

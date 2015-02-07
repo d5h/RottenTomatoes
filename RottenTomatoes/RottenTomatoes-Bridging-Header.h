@@ -11,5 +11,6 @@
 
 #import "AFNetworking.h"
 #import "UIImageView+AFNetworking.h"
+#import "SVProgressHUD.h"
 
 #endif

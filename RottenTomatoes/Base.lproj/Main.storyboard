@@ -24,7 +24,7 @@
             </objects>
             <point key="canvasLocation" x="438" y="432"/>
         </scene>
-        <!--View Controller-->
+        <!--Movies-->
         <scene sceneID="Ysf-mW-GzP">
             <objects>
                 <tableViewController id="wk6-Ug-0ft" customClass="ViewController" customModule="RottenTomatoes" customModuleProvider="target" sceneMemberID="viewController">
@@ -72,7 +72,7 @@
                             <outlet property="delegate" destination="wk6-Ug-0ft" id="QMp-ir-BC2"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="ZUY-g0-evh"/>
+                    <navigationItem key="navigationItem" title="Movies" id="ZUY-g0-evh"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pKp-L2-JTS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

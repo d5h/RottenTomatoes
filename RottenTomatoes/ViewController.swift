@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UITableViewController {
     
     var movieData: NSArray = []
+    var networkErrorView: UILabel?
 
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
@@ -20,7 +21,7 @@ class ViewController: UITableViewController {
         NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) {
             response, data, error in
             if error != nil || data == nil {
-                println(error)
+                self.showNetworkError()
                 return
             }
             var jsonError: NSError? = nil
@@ -32,6 +33,19 @@ class ViewController: UITableViewController {
             self.movieData = dict["movies"] as NSArray
             self.tableView.reloadData()
         }
+    }
+    
+    func showNetworkError() {
+        if networkErrorView == nil {
+            let w = CGRectGetWidth(self.view.frame)
+            let frame = CGRectMake(0, 0, w, 24)
+            networkErrorView = UILabel(frame: frame)
+            networkErrorView?.backgroundColor = UIColor.darkGrayColor()
+            networkErrorView?.textColor = UIColor.whiteColor()
+            networkErrorView?.textAlignment = NSTextAlignment.Center
+            networkErrorView?.text = "Network Error"
+        }
+        view.addSubview(networkErrorView!)
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

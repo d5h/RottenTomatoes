@@ -11,7 +11,7 @@ import UIKit
 class ViewController: UITableViewController {
     
     var movieData: NSArray = []
-    
+
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -40,17 +40,23 @@ class ViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("movieCell") as MovieTableViewCell
-        let movie = movieData[indexPath.row] as NSDictionary
-        cell.movieTitle.text = movie["title"] as? String
-        let url = movie.valueForKeyPath("posters.thumbnail") as String
+        let details = movieData[indexPath.row] as NSDictionary
+        cell.movieTitle.text = details["title"] as? String
+        let url = details.valueForKeyPath("posters.thumbnail") as String
         cell.posterView.setImageWithURL(NSURL(string: url))
+        cell.details = details
         return cell
     }
     
-    override func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
-        let details = MovieDetailsViewController()
-        details.details = movieData[indexPath.row] as NSDictionary
-        navigationController?.pushViewController(details, animated: true)
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Since we did a seque in the storyboard, this is called before didSelectRowAtIndexPath.
+        // Hence, we store the details in the cell.
+        // Note that the source controller is self.  The destination controller is the detail view
+        // controller.  The sender is the cell.
+        let cell = sender as? MovieTableViewCell
+        let detailsView = segue.destinationViewController as MovieDetailsViewController
+        detailsView.details = cell?.details
     }
 }
 

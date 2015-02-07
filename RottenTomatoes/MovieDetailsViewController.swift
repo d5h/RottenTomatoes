@@ -11,11 +11,14 @@ import UIKit
 class MovieDetailsViewController: UIViewController {
     
     var details: NSDictionary!
-
+    @IBOutlet weak var posterView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        let tmbUrl = details.valueForKeyPath("posters.original") as String
+        let url = tmbUrl.stringByReplacingOccurrencesOfString("_tmb.jpg", withString: "_ori.jpg")
+        posterView.setImageWithURL(NSURL(string: url))
     }
 
     override func didReceiveMemoryWarning() {
@@ -23,21 +26,9 @@ class MovieDetailsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    override func loadView() {
-        let newView = UIView(frame: CGRectZero)
-        newView.backgroundColor = UIColor.greenColor()
-        view = newView
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    // DO NOT override this (or if you do, call super.  Otherwise
+    // posterView won't get initialized.  I guess the default loads
+    // the nib.
+    //override func loadView() {
+    //}
 }

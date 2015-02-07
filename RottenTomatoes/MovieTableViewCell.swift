@@ -12,6 +12,8 @@ class MovieTableViewCell: UITableViewCell {
 
     @IBOutlet weak var posterView: UIImageView!
     @IBOutlet weak var movieTitle: UILabel!
+    
+    var details: NSDictionary!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,5 +25,4 @@ class MovieTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
 }

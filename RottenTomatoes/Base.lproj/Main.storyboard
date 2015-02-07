@@ -63,7 +63,7 @@
                                 <connections>
                                     <outlet property="movieTitle" destination="Gq5-2q-QXj" id="drf-16-xKR"/>
                                     <outlet property="posterView" destination="5Is-Hn-YAZ" id="npn-iQ-GlA"/>
-                                    <segue destination="cp7-wJ-r81" kind="show" id="ipE-JH-3uE"/>
+                                    <segue destination="cp7-wJ-r81" kind="show" id="OGv-vl-S17"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -89,8 +89,16 @@
                     <view key="view" contentMode="scaleToFill" id="WPL-sw-w0g">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O4m-yh-9k2">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="posterView" destination="O4m-yh-9k2" id="34R-pU-8gt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EGh-8e-RPE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

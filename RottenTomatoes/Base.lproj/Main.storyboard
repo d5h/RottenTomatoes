@@ -38,13 +38,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="movieCell" rowHeight="96" id="kJX-QJ-Xg2" customClass="MovieTableViewCell" customModule="RottenTomatoes" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="movieCell" rowHeight="80" id="kJX-QJ-Xg2" customClass="MovieTableViewCell" customModule="RottenTomatoes" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kJX-QJ-Xg2" id="2ys-9c-SO9">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5Is-Hn-YAZ">
-                                            <rect key="frame" x="8" y="8" width="54" height="80"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Is-Hn-YAZ">
+                                            <rect key="frame" x="0.0" y="0.0" width="54" height="80"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="5Is-Hn-YAZ" secondAttribute="height" multiplier="27:40" id="QSD-ac-OOx"/>
                                             </constraints>
@@ -58,12 +58,12 @@
                                     </subviews>
                                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
+                                        <constraint firstItem="5Is-Hn-YAZ" firstAttribute="top" secondItem="2ys-9c-SO9" secondAttribute="top" id="1gz-Q4-ttC"/>
+                                        <constraint firstItem="5Is-Hn-YAZ" firstAttribute="leading" secondItem="2ys-9c-SO9" secondAttribute="leading" id="5D5-eI-KeQ"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="Gq5-2q-QXj" secondAttribute="trailing" id="740-De-a5Z"/>
-                                        <constraint firstItem="5Is-Hn-YAZ" firstAttribute="bottom" secondItem="2ys-9c-SO9" secondAttribute="bottomMargin" id="Fa6-PV-TsR"/>
+                                        <constraint firstAttribute="bottom" secondItem="5Is-Hn-YAZ" secondAttribute="bottom" constant="0.5" id="HCZ-gg-Q69"/>
                                         <constraint firstItem="Gq5-2q-QXj" firstAttribute="leading" secondItem="5Is-Hn-YAZ" secondAttribute="trailing" constant="8" id="Ii3-lv-hAy"/>
-                                        <constraint firstItem="5Is-Hn-YAZ" firstAttribute="top" secondItem="2ys-9c-SO9" secondAttribute="topMargin" id="d67-8H-pwC"/>
                                         <constraint firstItem="Gq5-2q-QXj" firstAttribute="top" secondItem="2ys-9c-SO9" secondAttribute="topMargin" id="gQJ-jb-oIh"/>
-                                        <constraint firstItem="5Is-Hn-YAZ" firstAttribute="leading" secondItem="2ys-9c-SO9" secondAttribute="leadingMargin" id="ggl-Dz-j9O"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>

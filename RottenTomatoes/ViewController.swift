@@ -12,7 +12,6 @@ class ViewController: UITableViewController {
     
     var movieData: NSArray = []
     var networkErrorView: UILabel?
-    //var refreshControl: UIRefreshControl!
 
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
@@ -66,6 +65,9 @@ class ViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("movieCell") as MovieTableViewCell
         let details = movieData[indexPath.row] as NSDictionary
         cell.movieTitle.text = details["title"] as? String
+        cell.synopsis.text = details["synopsis"] as? String
+        let rating = details.valueForKeyPath("ratings.critics_score") as? Int
+        cell.rating.text = String(format: "%d%%", rating!)
         let url = details.valueForKeyPath("posters.thumbnail") as String
         cell.posterView.setImageWithURL(NSURL(string: url))
         cell.details = details

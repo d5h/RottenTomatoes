@@ -12,7 +12,9 @@ class MovieTableViewCell: UITableViewCell {
 
     @IBOutlet weak var posterView: UIImageView!
     @IBOutlet weak var movieTitle: UILabel!
-    
+    @IBOutlet weak var rating: UILabel!
+    @IBOutlet weak var synopsis: UILabel!
+
     var details: NSDictionary!
 
     override func awakeFromNib() {
